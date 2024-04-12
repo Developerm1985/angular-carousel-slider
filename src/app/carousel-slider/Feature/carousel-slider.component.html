@@ -1,0 +1,10 @@
+<app-carousel-slider-ui 
+    *ngIf="slides$ | async as slides" 
+    [slides]="slides"
+    [previousBtn]="true"
+    [nextBtn]="true"
+    [containerHeight]="'400px'"
+    [containerWidth]="'400px'"
+    [slideIntervalTime]="3000"
+    [isInterval]="true"
+    />

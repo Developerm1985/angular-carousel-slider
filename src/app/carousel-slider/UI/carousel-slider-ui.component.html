@@ -1,0 +1,35 @@
+<main class="container">
+    @if (previousBtn) {
+        <button  class="action-btn" (click)="previousSlideFn()"> < </button>
+    }
+
+    <div class="image-container"
+        [style.height]="containerHeight"
+        [style.width]="containerWidth"
+        >
+        @for (url of slides; track $index) {
+            <div 
+                class="image-item"
+                [ngClass]="{'active': $index === currentIndex }"
+                [style]="'--index:' + currentIndex"
+                >
+                <img [src]="url">
+            </div>
+        }
+    </div>
+
+    @if (nextBtn) {
+        <button class="action-btn" (click)="nextSlideFn()"> > </button>
+    }
+    
+    <div class="bottom-bar">
+        @for (item of slides; track $index) {
+            <div 
+            class="bottom-item" 
+            [ngClass]="{'active': $index === currentIndex }"
+            (click)="bottomBarFn($index)"
+            ></div>
+        }
+    </div>
+
+</main>
